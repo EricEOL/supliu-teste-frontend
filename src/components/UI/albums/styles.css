@@ -1,0 +1,27 @@
+.albums-container {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  z-index: 2;
+}
+
+.album > strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tracks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tracks table {
+  text-align: left;
+}
+
+.tracks table tr th,td {
+  font-weight: 400;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
