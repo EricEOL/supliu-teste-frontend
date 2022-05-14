@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Home from './pages/home';
 
 function App() {
+
+  const [albums, setAlbums] = useState();
+
+  useEffect(() => {
+    axios.get("https://tiao.supliu.com.br/api/album", {
+      headers: {
+        "Authorization": "lopes.eric051@gmail.com"
+      }
+    }).then(result => {
+      setAlbums(result.data.data);
+    });
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Home />
+      {/*albums.map(album => (
+        <h1>{album.id}</h1>
+      ))*/}
     </div>
   );
 }

@@ -1,0 +1,25 @@
+.window {
+  width: 70%;
+  min-width: 350px;
+  min-height: 80vh;
+  background: #ffffff;
+  background: transparent;
+  box-shadow: 0 0 20px 0 #999;
+}
+
+.window header {
+  height: 120px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0 5px 15px 0 #999;
+}
+
+.window__content {
+  width: 100%;
+  min-height: 80vh;
+  opacity: 0.6;
+  background: #fff;
+}
