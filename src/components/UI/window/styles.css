@@ -23,7 +23,7 @@
   justify-content: center;
 }
 
-.window header > div img {
+.window header > div .logo {
   margin-left: 20px;
 }
 
@@ -34,8 +34,20 @@
 }
 
 .window__content {
+  position: relative;
   width: 100%;
   min-height: 80vh;
-  opacity: 0.6;
   background: var(--bg-color);
+  background: transparent;
+}
+
+.window__content .content__background {
+  position: absolute;
+  width: 100%;
+  min-height: 80vh;
+  top: 0;
+  left: 0;
+  background: var(--bg-color);
+  opacity: 0.6;
+  z-index: 1;
 }

@@ -1,4 +1,4 @@
-.menu {
+.container-menu {
   position: relative;
 }
 
@@ -6,6 +6,7 @@
   width: 40px;
   position: relative;
   z-index: 99;
+  cursor: pointer;
 }
 
 .menu-hamburger .bar,
@@ -42,48 +43,50 @@
   top: -36px;
   left: -30px;
   min-height: calc(80vh + 120px);
-  width: 280px;
+  width: 300px;
   display: block;
   z-index: 98;
   background: var(--bg-color);
   opacity: 0.9;
   padding-top: 120px;
+  box-shadow: 3px 0 8px #999;
 }
 
 .links ul {
   list-style: none;
 }
 
+.links ul li {
+  border-bottom: 1px solid #333;
+}
+
+.links ul li:last-child {
+  border: none;
+}
+
 .links a {
   display: block;
-  font-size: 18px;
-  width: 100%;
-  max-width: 300px;
-  margin: 8px auto;
+  font-size: var(--font-size-normal);
+  font-weight: 700;
   text-align: center;
-  padding: 12px 16px;
+  padding: 20px 0 20px 0;
   text-decoration: none;
 
   color: var(--color-black-800);
-  border-bottom: 1px solid #333;
   opacity: 0.8;
 }
 
 .links a:hover {
-  background: #333;
+  color: #fff;
+  background: var(--color-gray-500);
+  transition: 0.2s;
 }
 
 .links a img {
+  display: inline;
+  margin: 0 auto;
   width: 30px;
 }
 
 
-
-.social-medias {
-  margin-left: 30px;
-}
-
-.social-medias li {
-  margin-left: 0;
-}
 

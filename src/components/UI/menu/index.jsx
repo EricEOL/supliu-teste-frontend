@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles.css";
+import './styles.css';
 
 function Menu() {
 
@@ -10,7 +10,7 @@ function Menu() {
   }
   
   return (
-    <div className="menu">
+    <div className="container-menu">
 
       <div className={menuActive === false ? "menu-hamburger" : "menu-hamburger is-active"} onClick={activeMenu}>
         <div className="bar"></div>
@@ -22,10 +22,10 @@ function Menu() {
             <a href="#curso">Discografia</a>
           </li>
           <li>
-            <a href="#mentoria">Mentoria 2 meses</a>
+            <a href="#mentoria">Alterar álbuns e faixas</a>
           </li>
           <li>
-            <a href="https://www.instagram.com/alfa11.assessoria/?hl=pt-br" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/tiaocarreiroepardinho/" target="_blank" rel="noreferrer">
               <img src="./assets/instagram.png" alt="instagram" />
             </a>
           </li>

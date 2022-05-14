@@ -1,5 +1,5 @@
 import Menu from "../menu";
-import "./styles.css";
+import './styles.css';
 
 function Window({ title, children }) {
   return (
@@ -7,13 +7,13 @@ function Window({ title, children }) {
       <header>
         <div>
           <Menu />
-          <img src="./assets/logo.png" alt="Tião Carreiro" />
+          <img className="logo" src="./assets/logo.png" alt="Tião Carreiro" />
         </div>
         <h2>{title}</h2>
       </header>
       <div className="window__content">
-        <h1>chcucu</h1>
         {children}
+        <div className="content__background"></div>
       </div>
     </div>
   )
