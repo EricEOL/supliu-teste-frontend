@@ -17,9 +17,25 @@
   box-shadow: 0 5px 15px 0 #999;
 }
 
+.window header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window header > div img {
+  margin-left: 20px;
+}
+
+.window header h2 {
+  font-size: var(--font-size-big);
+  font-weight: 300;
+  color: var(--color-gray-700);
+}
+
 .window__content {
   width: 100%;
   min-height: 80vh;
   opacity: 0.6;
-  background: #fff;
+  background: var(--bg-color);
 }

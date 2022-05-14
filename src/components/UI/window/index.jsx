@@ -1,3 +1,4 @@
+import Menu from "../menu";
 import "./styles.css";
 
 function Window({ title, children }) {
@@ -5,8 +6,8 @@ function Window({ title, children }) {
     <div className="window">
       <header>
         <div>
-          <span>menu</span>
-          <img src="./assets/logo.png" alt="" />
+          <Menu />
+          <img src="./assets/logo.png" alt="Tião Carreiro" />
         </div>
         <h2>{title}</h2>
       </header>
