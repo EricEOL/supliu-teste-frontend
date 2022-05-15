@@ -41,6 +41,7 @@
 
 .remove-track {
   text-align: center;
+  cursor: pointer;
 }
 
 @keyframes appear {

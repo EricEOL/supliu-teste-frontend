@@ -9,3 +9,10 @@
   z-index: 2;
   padding-top: 100px;
 }
+
+.response {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}

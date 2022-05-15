@@ -8,13 +8,16 @@ import Albums from "../components/UI/albums";
 import Loading from "../components/UI/Loading";
 
 function Home() {
+  const [loading, setLoading] = useState(true);
+  const [screenReady, setScreenReady] = useState(false);
 
   const [albumsData, setAlbumsData] = useState([]);
-  const [screenReady, setScreenReady] = useState(false);
+  const [filteredAlbums, setFilteredAlbums] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
-      setScreenReady(true);
+      setLoading(false);
     }, 4000)
   })
 
@@ -25,15 +28,24 @@ function Home() {
       }
     }).then(result => {
       setAlbumsData(result.data);
+      setScreenReady(true);
     });
   },[]);
 
+  function searchAlbuns() {
+    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=1`, {
+      headers: {
+        "Authorization": "lopes.eric051@gmail.com"
+      }
+    }).then(result => setFilteredAlbums(result.data.data));
+  }
+
   return (
     <Wrapper>
-      {screenReady === false && <Loading />}
+      {loading === true && <Loading />}
       <Window title="Discografia">
-        <SearchBar />
-        {screenReady && <Albums albuns={albumsData.data}/> }
+        <SearchBar onChange={(event) => setKeyword(event.target.value)} onClick={searchAlbuns}/>
+        {screenReady && <Albums albuns={filteredAlbums.length > 0 ? filteredAlbums : albumsData.data}/> }
       </Window>
     </Wrapper>
   )

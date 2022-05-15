@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 function FormButtons({ onClick }) {
   return (
     <div className="form-buttons">
-      <a href="">cancelar</a>
+      <Link to="/updatealbums">cancelar</Link>
       <button onClick={onClick}>Inserir</button>
     </div>
   )

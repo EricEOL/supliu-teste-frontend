@@ -12,6 +12,7 @@ function CreateTrack() {
   const [number, setNumber] = useState();
   const [title, setTitle] = useState();
   const [duration, setDuration] = useState();
+  const [response, setResponse] = useState(null);
 
   function submit(event) {
     event.preventDefault();
@@ -29,7 +30,11 @@ function CreateTrack() {
         headers: {
           "Authorization": "lopes.eric051@gmail.com"
         }
-      }).then(response => console.log(response));
+      })
+      .then(response => response.status === 200 && setResponse("Nova faixa criada com sucesso"))
+      .catch(err => {
+        setResponse("Desculpe, houve um problema e não foi possível incluir essa faixa. Tente um nome diferente.");
+      });
     }
   }
 
@@ -43,6 +48,7 @@ function CreateTrack() {
           <Input name="Duration" type="number" placeholder="Ex: Duração da música em segundos" onChange={(event) => setDuration(event.target.value)}/>
           <FormButtons />
         </form>
+        {response !== null && <p className="response">{response}</p>}
       </Window>
     </Wrapper>
   )

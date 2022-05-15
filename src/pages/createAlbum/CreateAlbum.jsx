@@ -10,6 +10,7 @@ function CreateAlbum() {
 
   const [name, setName] = useState();
   const [year, setYear] = useState();
+  const [response, setResponse] = useState(null);
 
   function submit(event) {
     event.preventDefault();
@@ -25,10 +26,13 @@ function CreateAlbum() {
         headers: {
           "Authorization": "lopes.eric051@gmail.com"
         }
-      }).then(response => console.log(response));
+      }).then(response => {
+        response.status === 200 && setResponse("Novo álbum criado com sucesso");
+      }).catch(err => {
+        setResponse("Desculpe, houve um problema e não foi possível incluir esse álbum. Tente um nome diferente.");
+      });
     }
   }
-
 
   return (
     <Wrapper>
@@ -38,6 +42,7 @@ function CreateAlbum() {
           <Input name="Ano" type="number" placeholder="Ex: 2002" onChange={(event) => setYear(event.target.value)}/>
           <FormButtons />
         </form>
+        {response !== null && <p className="response">{response}</p>}
       </Window>
     </Wrapper>
   )
