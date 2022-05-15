@@ -7,6 +7,7 @@ import Window from "../../components/UI/window";
 import Wrapper from "../../components/UI/wrapper";
 
 import './styles.css';
+import { Link } from "react-router-dom";
 
 function UpdateAlbums() {
 
@@ -22,20 +23,24 @@ function UpdateAlbums() {
       setAlbumsData(result.data);
       setScreenReady(true);
     });
-  },[]);
+  }, []);
 
   return (
     <Wrapper>
       <Window title="Alterar Álbuns e Faixas">
-      <SearchBar />
-      <div className="create-buttons">
-        <button>Novo Álbum</button>
-        <button>Nova Faixa</button>
-      </div>
-      {screenReady && <Albums albuns={albumsData.data} updateScreen={true} />}
+        <SearchBar />
+        <div className="create-buttons">
+          <Link to="/createalbum">
+            <button className="create-album">Novo Álbum</button>
+          </Link>
+          <Link to="/createtrack">
+            <button className="create-track">Nova Faixa</button>
+          </Link>
+        </div>
+        {screenReady && <Albums albuns={albumsData.data} updateScreen={true} />}
       </Window>
     </Wrapper>
   )
 }
 
-export default UpdateAlbuns;
+export default UpdateAlbums;

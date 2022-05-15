@@ -25,6 +25,7 @@ function Home() {
       }
     }).then(result => {
       setAlbumsData(result.data);
+      console.log(result.data)
     });
   },[]);
 

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import UpdateAlbums from "../../../pages/updateAlbums/UpdateAlbums";
 import './styles.css';
 
 function Menu() {
@@ -19,10 +21,10 @@ function Menu() {
       <nav className={menuActive === false ? "links" : "links is-active"}>
         <ul>
           <li>
-            <a href="#curso">Discografia</a>
+          <Link to="/">Discografia</Link>
           </li>
           <li>
-            <a href="#mentoria">Alterar álbuns e faixas</a>
+            <Link to="/updatealbums">Alterar álbuns e faixas</Link>
           </li>
           <li>
             <a href="https://www.instagram.com/tiaocarreiroepardinho/" target="_blank" rel="noreferrer">
