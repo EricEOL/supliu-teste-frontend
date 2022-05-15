@@ -1,0 +1,27 @@
+.form-new-album .form-buttons {
+  justify-content: end;
+}
+
+.form-new-album .form-buttons button {
+  height: 50px;
+  width: 180px;
+  border-radius: 50px;
+  border: none;
+  background: var(--color-blue-500);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  outline: none;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form-new-album .form-buttons button:hover {
+  filter: brightness(1.1);
+}
+
+.form-new-album .form-buttons a {
+  color: red;
+  text-decoration: none;
+}

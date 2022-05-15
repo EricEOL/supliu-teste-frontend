@@ -1,9 +1,9 @@
-import Home from './pages/home';
-import UpdateAlbuns from './pages/updateAlbums/updatealbums';
+import CreateAlbum from './pages/createAlbum/CreateAlbum';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <UpdateAlbuns />
+    <CreateAlbum />
   );
 }
 

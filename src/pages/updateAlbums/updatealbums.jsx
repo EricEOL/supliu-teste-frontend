@@ -8,7 +8,7 @@ import Wrapper from "../../components/UI/wrapper";
 
 import './styles.css';
 
-function UpdateAlbuns() {
+function UpdateAlbums() {
 
   const [screenReady, setScreenReady] = useState(false);
   const [albumsData, setAlbumsData] = useState([]);
