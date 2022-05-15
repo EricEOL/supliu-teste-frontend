@@ -11,8 +11,9 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [screenReady, setScreenReady] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredCurrentPage, setFilteredCurrentPage] = useState(1);
   const [albumsData, setAlbumsData] = useState([]);
-  const [filteredAlbums, setFilteredAlbums] = useState([]);
   const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
@@ -22,7 +23,7 @@ function Home() {
   })
 
   useEffect(() => {
-    axios.get("https://tiao.supliu.com.br/api/album", {
+    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=${currentPage}`, {
       headers: {
         "Authorization": "lopes.eric051@gmail.com"
       }
@@ -30,22 +31,36 @@ function Home() {
       setAlbumsData(result.data);
       setScreenReady(true);
     });
-  },[]);
+  }, [currentPage]);
+
+  useEffect(() => {
+    searchAlbuns();
+  }, [filteredCurrentPage])
 
   function searchAlbuns() {
-    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=1`, {
+    setCurrentPage(1);
+    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=${filteredCurrentPage}`, {
       headers: {
         "Authorization": "lopes.eric051@gmail.com"
       }
-    }).then(result => setFilteredAlbums(result.data.data));
+    }).then(result => setAlbumsData(result.data));
   }
 
   return (
     <Wrapper>
       {loading === true && <Loading />}
       <Window title="Discografia">
-        <SearchBar onChange={(event) => setKeyword(event.target.value)} onClick={searchAlbuns}/>
-        {screenReady && <Albums albuns={filteredAlbums.length > 0 ? filteredAlbums : albumsData.data}/> }
+        <SearchBar onChange={(event) => setKeyword(event.target.value)} onClick={searchAlbuns} />
+        {screenReady && <Albums albuns={albumsData.data} />}
+
+        <div className="pages-control" style={{ position: "relative", zIndex: 2 }}>
+          <button onClick={() => {
+            setCurrentPage(currentPage - 1);
+          }} disabled={currentPage === 1}>Anterior</button>
+          <button onClick={() => {
+            setCurrentPage(currentPage + 1)
+          }} disabled={currentPage === albumsData.last_page}>Próximo</button>
+        </div>
       </Window>
     </Wrapper>
   )
