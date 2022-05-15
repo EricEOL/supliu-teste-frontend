@@ -5,10 +5,18 @@ import Window from "../components/UI/window";
 import Wrapper from "../components/UI/wrapper";
 import SearchBar from "../components/UI/searchbar";
 import Albums from "../components/UI/albums";
+import Loading from "../components/UI/Loading";
 
 function Home() {
 
   const [albumsData, setAlbumsData] = useState([]);
+  const [screenReady, setScreenReady] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setScreenReady(true);
+    }, 4000)
+  })
 
   useEffect(() => {
     axios.get("https://tiao.supliu.com.br/api/album", {
@@ -17,15 +25,15 @@ function Home() {
       }
     }).then(result => {
       setAlbumsData(result.data);
-      console.log(result.data.data)
     });
   },[]);
 
   return (
     <Wrapper>
+      {screenReady === false && <Loading />}
       <Window title="Discografia">
         <SearchBar />
-        {albumsData.data.length > 0 && <Albums albuns={albumsData.data} />}
+        {screenReady && <Albums albuns={albumsData.data}/> }
       </Window>
     </Wrapper>
   )

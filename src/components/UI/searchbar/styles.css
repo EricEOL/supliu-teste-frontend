@@ -23,7 +23,7 @@
   border-radius: 50px;
   border: none;
   background-color: var(--bg-color);
-  width: 75%;
+  min-width: 75%;
   height: 50px;
   padding-left: 25px;
   font-size: 16px;

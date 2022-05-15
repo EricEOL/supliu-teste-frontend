@@ -3,6 +3,9 @@
   width: 100%;
   padding: 40px;
   z-index: 2;
+
+  animation-name: appear;
+  animation-duration: 0.5s;
 }
 
 .album > strong {
@@ -24,4 +27,27 @@
   font-weight: 400;
   padding-right: 20px;
   padding-bottom: 10px;
+}
+
+.remove-album {
+  position: absolute;
+  width: 20px;
+  border-radius: 50%;
+  padding: 2px;
+  background: #fff;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.remove-track {
+  text-align: center;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  } 
+  to {
+    opacity: 1;
+  }
 }
