@@ -50,6 +50,9 @@
   opacity: 0.9;
   padding-top: 120px;
   box-shadow: 3px 0 8px #999;
+  animation-name: menu-open;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .links ul {
@@ -88,5 +91,12 @@
   width: 30px;
 }
 
-
+@keyframes menu-open {
+  from {
+    width: 0;
+  }
+  to {
+    width: 300px;
+  }
+}
 

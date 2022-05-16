@@ -1,5 +1,4 @@
 # A FAZER
-
+[ ] - Estilização do scroll vertical
 [ ] - Adaptação a mobile
-[x] - Botão de pesquisar alterar os dados dos álbuns
 [ ] - Testes
