@@ -26,3 +26,12 @@
   border-radius: 0 50px 50px 0;
   outline: none;
 }
+
+@media screen and (max-width: 1000px) {
+  .form-new-album div label {
+    font-size: 14px;
+  }
+  .form-new-album div input {
+    font-size: 14px;
+  }
+}

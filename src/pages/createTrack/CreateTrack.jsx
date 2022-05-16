@@ -33,7 +33,7 @@ function CreateTrack() {
       })
       .then(response => response.status === 200 && setResponse("Nova faixa criada com sucesso"))
       .catch(err => {
-        setResponse("Desculpe, houve um problema e não foi possível incluir essa faixa. Tente um nome diferente.");
+        setResponse("Desculpe, houve um problema e não foi possível incluir essa faixa. Você pode ter errado o id do álbum ou colocado um nome já existente.");
       });
     }
   }

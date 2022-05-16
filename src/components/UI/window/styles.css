@@ -52,3 +52,15 @@
   opacity: 0.6;
   z-index: 1;
 }
+
+@media screen and (max-width: 1000px) {
+  .window header > div .logo {
+    width: 100px;
+  }
+  
+  .window header h2 {
+    width: fit-content;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+}

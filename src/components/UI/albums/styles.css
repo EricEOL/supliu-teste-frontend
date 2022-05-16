@@ -4,7 +4,8 @@
   max-height: 400px;
   margin-top: 20px;
   overflow-y: scroll;
-  padding: 40px;
+  overflow-x: hidden;
+  padding: 0 40px 40px 40px;
   z-index: 2;
 
   animation-name: appear;
@@ -78,5 +79,11 @@
   } 
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .albums-container {
+    max-height: 350px;
   }
 }
