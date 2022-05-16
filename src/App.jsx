@@ -1,7 +1,8 @@
-import CreateAlbum from './pages/createAlbum/CreateAlbum';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Home from './pages/Home';
 import UpdateAlbums from './pages/updateAlbums/UpdateAlbums';
+import CreateAlbum from './pages/createAlbum/CreateAlbum';
 import CreateTrack from './pages/createTrack/CreateTrack';
 
 function App() {
