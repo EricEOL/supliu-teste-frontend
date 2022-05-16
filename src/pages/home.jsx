@@ -6,13 +6,13 @@ import Wrapper from "../components/UI/wrapper";
 import SearchBar from "../components/UI/searchbar";
 import Albums from "../components/UI/albums";
 import Loading from "../components/UI/Loading";
+import Pagination from "../components/UI/pagination";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [screenReady, setScreenReady] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [filteredCurrentPage, setFilteredCurrentPage] = useState(1);
   const [albumsData, setAlbumsData] = useState([]);
   const [keyword, setKeyword] = useState("");
 
@@ -33,13 +33,9 @@ function Home() {
     });
   }, [currentPage]);
 
-  useEffect(() => {
-    searchAlbuns();
-  }, [filteredCurrentPage])
-
   function searchAlbuns() {
     setCurrentPage(1);
-    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=${filteredCurrentPage}`, {
+    axios.get(`https://tiao.supliu.com.br/api/album?keyword=${keyword}&limit=10&page=1`, {
       headers: {
         "Authorization": "lopes.eric051@gmail.com"
       }
@@ -52,15 +48,16 @@ function Home() {
       <Window title="Discografia">
         <SearchBar onChange={(event) => setKeyword(event.target.value)} onClick={searchAlbuns} />
         {screenReady && <Albums albuns={albumsData.data} />}
-
-        <div className="pages-control" style={{ position: "relative", zIndex: 2 }}>
-          <button onClick={() => {
+        <Pagination
+          previous={() => {
             setCurrentPage(currentPage - 1);
-          }} disabled={currentPage === 1}>Anterior</button>
-          <button onClick={() => {
+          }} 
+          next={() => {
             setCurrentPage(currentPage + 1)
-          }} disabled={currentPage === albumsData.last_page}>Próximo</button>
-        </div>
+          }} 
+          disabledPrevious={currentPage === 1} 
+          disabledNext={currentPage === albumsData.last_page} 
+        />
       </Window>
     </Wrapper>
   )

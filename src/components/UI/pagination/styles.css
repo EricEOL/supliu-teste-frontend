@@ -1,0 +1,38 @@
+.pages-control {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+}
+
+.pages-control button {
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #fff;
+  background: var(--color-gray-500);
+  font-weight: 300;
+}
+
+.pages-control button:last-child {
+  border-radius: 0 50px 50px 0;
+  background: var(--color-gray-700);
+}
+
+.pages-control button:hover {
+  filter: brightness(1.2);
+}
+
+.pages-control button:disabled {
+  background: transparent;
+  color: #000;
+  cursor: not-allowed;
+}
